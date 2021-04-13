@@ -19,7 +19,7 @@ export default function AddTransaction() {
     addTransactions(transaction);
 
     settext("");
-    setCash();
+    setCash(" ");
   };
 
   return (
