@@ -10,13 +10,13 @@ export default (state, action) => {
       return {
         ...state,
         transactions: state.transactions.filter(
-          (a) => a.id !== action.payload.id
+          (a) => a._id !== action.payload.id
         ),
       };
     case "ADD_TRANSACTION":
       return {
         ...state,
-        transactions: [action.payload.transaction, ...state.transactions],
+        transactions: [...state.transactions, action.payload.transaction],
       };
     case "TRANSACTION_ERROR":
       return {

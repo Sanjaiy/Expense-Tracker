@@ -1,11 +1,12 @@
 import React, { useState, useContext } from "react";
+import Alert from "./Alert";
 import { GlobalContext } from "../context/GlobalState";
 import { v4 } from "uuid";
 
 export default function AddTransaction() {
-  const { addTransactions } = useContext(GlobalContext);
+  const { addTransactions, error } = useContext(GlobalContext);
   const [text, settext] = useState("");
-  const [cash, setCash] = useState();
+  const [amount, setCash] = useState();
 
   const newTransaction = (e) => {
     e.preventDefault();
@@ -13,18 +14,19 @@ export default function AddTransaction() {
     const transaction = {
       id: v4(),
       text: text,
-      amount: +cash,
+      amount: +amount,
     };
 
     addTransactions(transaction);
 
     settext("");
-    setCash(" ");
+    setCash("");
   };
 
   return (
     <>
       <h3>Add new transaction</h3>
+      {!error ? "" : error.map((e) => <Alert key={e} error={e} />)}
       <form onSubmit={newTransaction}>
         <div className="form-control">
           <label htmlFor="text">Text</label>
@@ -43,7 +45,7 @@ export default function AddTransaction() {
           <input
             type="number"
             placeholder="Enter amount..."
-            value={cash}
+            value={amount}
             onChange={(e) => setCash(e.target.value)}
           />
         </div>

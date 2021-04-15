@@ -149,3 +149,35 @@ input[type="number"] {
 .list li:hover .delete-btn {
   opacity: 1;
 }
+
+.alert {
+  margin-top: -2px;
+  padding: 8px 35px 8px 14px;
+  margin-bottom: 18px;
+  color: #c09853;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+  background-color: #fcf8e3;
+  border: 1px solid #fbeed5;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.alert-danger,
+.alert-error {
+  color: #b94a48;
+  background-color: #f2dede;
+  border-color: #eed3d7;
+}
+.alert button {
+  background-color: #f2dede;
+  outline: none;
+  color: #b94a48;
+  border: none;
+  margin-left: 5px;
+}
+.alert span {
+  font-size: 30px;
+}

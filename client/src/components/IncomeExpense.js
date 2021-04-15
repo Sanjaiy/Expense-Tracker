@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { GlobalContext } from "../context/GlobalState";
+import { numberWithCommas } from "../utils/format";
 
 export default function IncomeExpense() {
   const { transactions } = useContext(GlobalContext);
@@ -19,11 +20,11 @@ export default function IncomeExpense() {
     <div className="inc-exp-container">
       <div>
         <h4>Income</h4>
-        <p className="money plus">&#8377;{incomeTotal}</p>
+        <p className="money plus">&#8377;{numberWithCommas(incomeTotal)}</p>
       </div>
       <div>
         <h4>Expense</h4>
-        <p className="money minus">&#8377;{expenseTotal}</p>
+        <p className="money minus">&#8377;{numberWithCommas(expenseTotal)}</p>
       </div>
     </div>
   );
